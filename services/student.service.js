@@ -42,9 +42,6 @@ class StudentService {
     }
     const student = Student.findByPk(id);
 
-    if (!student) {
-      return null;
-    }
     console.log("student updated successfully");
     return student;
   }
