@@ -3,6 +3,7 @@ require("dotenv").config();
 
 const sequelize = require("./config/database");
 const studentRoutes = require("./routes/StudentsRoutes");
+const errorHandling = require("./middlewares/error.middleware");
 
 const app = express();
 
@@ -20,6 +21,11 @@ app.get("/", (req, res) => {
 
 // Student routes
 app.use("/students", studentRoutes);
+
+console.log("middleware:", typeof errorHandling);
+
+// ERROR HANDLING
+app.use(errorHandling);
 
 // Start server only after database is ready
 async function startServer() {
