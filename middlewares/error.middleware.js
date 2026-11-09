@@ -1,8 +1,10 @@
 const errorHandling = (error, req, res, next) => {
   console.log("Error: ", error);
 
-  res.status(500).json({
-    message: "Unable to process data!",
+  const statusCode = error.statusCode || 500;
+  res.status(statusCode).json({
+    success: false,
+    message: error.message || "Internal Server Error",
   });
 };
 
