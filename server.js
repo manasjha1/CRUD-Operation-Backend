@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 // Student routes
 app.use("/students", studentRoutes);
 
-console.log("middleware:", typeof errorHandling);
+// console.log("middleware:", typeof errorHandling);
 
 // ERROR HANDLING
 app.use(errorHandling);
